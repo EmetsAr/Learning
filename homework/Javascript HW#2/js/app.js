@@ -41,6 +41,7 @@ function getMath(){
 
 
 /* Task 2 */
+/* http://bi0morph.github.io/teaching-materials/lesson-2/exercises/ifelse.html */
 function greaterNum (a,b){
 	if(a>b){
 		return a
