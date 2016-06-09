@@ -15,16 +15,17 @@ function guessLetter(letter){
 			guessWord[i]=letter;
 			console.log(guessWord)
 			goodAttemp=true
-			/* очки за угаданную букву*/
+			/* очки за угаданную букву
 			if(bonusPoint){
-				startPoint+=(randomInteger(10,50)*2)
+
 				bonusPoint=false
 				console.log('удвоение!!!')
 			} else{
 				startPoint+=randomInteger(10,50)
 				bonusPoint=true
 				console.log('угадал')
-			}
+			}*/
+			startPoint+=randomInteger(10,50)
 			console.log(startPoint)
 
 			/* сколько осталось букв */
