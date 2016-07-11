@@ -2,11 +2,11 @@ function Animal (name,weight) {
     this.name=name;
     this.weight=weight;
 
-    function getName (){
+    this.getName = function(){
       return this.name
   };
 
-   function getWeight (){
+   this.getWeight = function(){
      return this.weight
   };
 
@@ -31,14 +31,11 @@ function Animal (name,weight) {
 }
 
 
-var Giraffe  = new Animal('Giraffe',270);
-console.log(Giraffe)
-
 function Frize(roominess){
   isOpened= false;
   this.roominess=roominess,
-  currentRoom=0
-  function open(){
+  currentRoom=0;
+  this.open=function(){
     if(isOpened){
       throw new Error("Холодильник уже открыт")
     } else{
@@ -46,23 +43,24 @@ function Frize(roominess){
     }
 
   };
-  function close(){
+  this.close=function(){
      if(!isOpened){
       throw new Error("Холодильник уже закрыт")
     } else{
       isOpened=false
     }
   };
-  function put(weight){
+  this.put=function(weight){
     if((currentRoom+weight)>this.roominess){
       throw new Error("Целиком животное не влезет, или смените животное или его вес")
     } else{
       currentRoom+=weight;
        console.log('Вы положили  в холодильник животное')
+       console.log('Всего в холодильнике '+currentRoom)
     }
 
   };
-  function pull(){
+   this.pull=function(weight){
     if(currentRoom==0||currentRoom<0){
       throw new Error("Холодильник пуст")
     }
@@ -72,3 +70,23 @@ function Frize(roominess){
     }
   };
 }
+
+var Giraffe  = new Animal('Giraffe',370);
+console.log(Giraffe)
+var newFreeze=new Frize(1820);
+console.log(newFreeze)
+newFreeze.open();
+newFreeze.put(Giraffe.getWeight());
+newFreeze.close();
+newFreeze.open();
+newFreeze.put(Giraffe.getWeight());
+newFreeze.close();
+newFreeze.open();
+newFreeze.pull(Giraffe.getWeight());
+newFreeze.close();
+newFreeze.open();
+newFreeze.pull(Giraffe.getWeight());
+newFreeze.pull(Giraffe.getWeight());
+newFreeze.pull(Giraffe.getWeight());
+newFreeze.pull(Giraffe.getWeight());
+newFreeze.close();
